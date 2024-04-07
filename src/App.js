@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom';
 
 import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
-import NTSNavigationBar from "./components/NTSNavigationBar";
+import NTSnavigationBar from "./components/NTSnavigationBar";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<h1>cannot GET "/" </h1>} />
-      <Route path="/app" element={<NTSNavigationBar />} />
-      </Routes>
+      <Route path="/app/*" element={<NTSnavigationBar />} />
+      </Routes> 
     </Router>
   );
 };

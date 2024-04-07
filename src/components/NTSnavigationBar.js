@@ -11,7 +11,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Button from 'react-bootstrap/Button';
 
-function NTSNavigationBar() {
+function NTSnavigationBar() {
 
   const [AllowedActions, setAllowedActions] = useState(
     [{
@@ -21,7 +21,7 @@ function NTSNavigationBar() {
     }]);
 
   const listItems = AllowedActions.map(allowedAction =>
-    <NavDropdown.Item link={allowedAction.linkto} key={allowedAction.featurekey}>
+    <NavDropdown.Item as={Link} to={allowedAction.linkto} key={allowedAction.featurekey}>
       {allowedAction.featurename}
     </NavDropdown.Item>
   );
@@ -29,7 +29,7 @@ function NTSNavigationBar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand as={Link} to="/app">
           <img
             alt=""
             src={logo}
@@ -40,16 +40,16 @@ function NTSNavigationBar() {
           NTSテスト
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+        <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">{'　'}
           <NavDropdown title="ツール" id="basic-nav-dropdown">
             {listItems}
-          </NavDropdown>
+          </NavDropdown>{'　'}
           <NavDropdown title="Mark Otto" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">
+            <NavDropdown.Item as={Link} to="./myaccount">
               アカウント情報
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
+            <NavDropdown.Item as={Link} to="/logout">
               ログアウト
             </NavDropdown.Item>
           </NavDropdown>
@@ -59,4 +59,4 @@ function NTSNavigationBar() {
   );
 }
 
-export default NTSNavigationBar;
+export default NTSnavigationBar;
