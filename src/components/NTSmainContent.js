@@ -1,8 +1,17 @@
 import React from "react";
-import { browserRouter } from "react-router-dom";
+import ReactDOM from 'react-dom';
 
-function NTSmainContent(){
-    
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import NTSmyAccount from "./NTSmyAccount";
+
+function NTSmainContent() {
+  return (
+      <Routes>
+        <Route path="myaccount" element={<NTSmyAccount />} />
+        <Route path="/bordercontrol" element={<h1>cannot GET "/bordercontrol" </h1>} />
+      </Routes>
+  );
 }
 
 export default NTSmainContent;

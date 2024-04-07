@@ -1,18 +1,20 @@
-import React from "react";
+import {React, useContext} from "react";
 import ReactDOM from 'react-dom';
 
-import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 import NTSnavigationBar from "./components/NTSnavigationBar";
+import NTSmainContent from "./components/NTSmainContent";
+import uacContext from "./components/NTSuacContext";
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<h1>cannot GET "/" </h1>} />
-      <Route path="/app/*" element={<NTSnavigationBar />} />
+      <Route path="/app/*" element={<div><NTSnavigationBar /><NTSmainContent /></div>} />
       </Routes> 
-    </Router>
+    </BrowserRouter>
   );
 };
 

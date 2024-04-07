@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { browserRouter, Link } from "react-router-dom";
 
 import logo from '../logo.svg';
@@ -10,17 +10,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import Button from 'react-bootstrap/Button';
+import uacContext from "./NTSuacContext";
 
 function NTSnavigationBar() {
 
-  const [AllowedActions, setAllowedActions] = useState(
-    [{
-      featurekey: "bordercontrol",
-      featurename: "入退場管理",
-      linkto: "./bordercontrol"
-    }]);
+  const uacInfo = useContext(uacContext);
 
-  const listItems = AllowedActions.map(allowedAction =>
+  const listItems = uacInfo.allowedActions.map(allowedAction =>
     <NavDropdown.Item as={Link} to={allowedAction.linkto} key={allowedAction.featurekey}>
       {allowedAction.featurename}
     </NavDropdown.Item>
@@ -44,7 +40,7 @@ function NTSnavigationBar() {
           <NavDropdown title="ツール" id="basic-nav-dropdown">
             {listItems}
           </NavDropdown>{'　'}
-          <NavDropdown title="Mark Otto" id="basic-nav-dropdown">
+          <NavDropdown title={uacInfo.lastName + " "+uacInfo.firstName} id="basic-nav-dropdown">
             <NavDropdown.Item as={Link} to="./myaccount">
               アカウント情報
             </NavDropdown.Item>
