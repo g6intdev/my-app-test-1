@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import { Routes, Route } from "react-router-dom";
 
-import NTSappHome from "./NTAappHome";
+import NTSappHome from "./NTSappHome";
 import NTSmyAccount from "./NTSmyAccount";
 
 function NTSmainContent() {
