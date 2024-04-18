@@ -8,6 +8,7 @@ const uacContext = createContext({
   borderControlStatus: 0,
   nygBalance: 0,
   jpyBalance: 0,
+  messages:[{}],
   allowedActions: [{
     featurekey: "bordercontrol",
     featurename: "入退場管理",
